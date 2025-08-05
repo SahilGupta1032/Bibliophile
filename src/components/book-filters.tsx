@@ -10,7 +10,7 @@ import { Genre } from "@prisma/client"
 export function BookFilters() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const createQueryString = useCallback(
     (name: string, value: string) => {

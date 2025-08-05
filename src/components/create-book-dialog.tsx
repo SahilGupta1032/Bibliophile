@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { bookSchema, BookFormData } from "@/lib/validations"
+import { bookFormSchema, BookFormData } from "@/lib/validations"
 import { createBook } from "@/lib/actions/books"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
@@ -23,7 +23,7 @@ export function CreateBookDialog({ open, onOpenChange }: CreateBookDialogProps) 
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<BookFormData>({
-    resolver: zodResolver(bookSchema),
+    resolver: zodResolver(bookFormSchema),
     defaultValues: {
       title: "",
       author: "",
